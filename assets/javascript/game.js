@@ -8,18 +8,6 @@ $(document).ready(function(){
     reset();
 
     
-    // function reset() {
-    //     numberToMatch = Math.floor(Math.random() * 101) + 19;
-    //     var crystal1 = Math.floor(Math.random() * 11) + 1;
-    //     var crystal2 = Math.floor(Math.random() * 11) + 1;
-    //     var crystal3 = Math.floor(Math.random() * 11) + 1;
-    //     var crystal4 = Math.floor(Math.random() * 11) + 1;
-    //     $("#crystal1").attr("data-value", crystal1);
-    //     $("#crystal2").attr("data-value", crystal2);
-    //     $("#crystal3").attr("data-value", crystal3);
-    //     $("#crystal4").attr("data-value", crystal4);
-    // }
-    
     function reset() {
         numberToMatch = 0;
         numberToMatch = Math.floor(Math.random() * 101) + 19;
@@ -47,7 +35,6 @@ $(document).ready(function(){
         counter += crystalValue;
         $("#current-score").text(counter);
         
-        // alert("New score: " + counter);
         
         if (counter === numberToMatch) {
             alert("You win!");
