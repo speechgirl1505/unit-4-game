@@ -7,10 +7,25 @@ $(document).ready(function(){
 
     reset();
 
-    $("#number-to-guess").text(numberToMatch);
+    
+    // function reset() {
+    //     numberToMatch = Math.floor(Math.random() * 101) + 19;
+    //     var crystal1 = Math.floor(Math.random() * 11) + 1;
+    //     var crystal2 = Math.floor(Math.random() * 11) + 1;
+    //     var crystal3 = Math.floor(Math.random() * 11) + 1;
+    //     var crystal4 = Math.floor(Math.random() * 11) + 1;
+    //     $("#crystal1").attr("data-value", crystal1);
+    //     $("#crystal2").attr("data-value", crystal2);
+    //     $("#crystal3").attr("data-value", crystal3);
+    //     $("#crystal4").attr("data-value", crystal4);
+    // }
     
     function reset() {
+        numberToMatch = 0;
         numberToMatch = Math.floor(Math.random() * 101) + 19;
+        $("#number-to-guess").text(numberToMatch);
+        counter = 0;
+        $("#current-score").text(counter);
         // userNumber = 0;
         var crystal1 = Math.floor(Math.random() * 11) + 1;
         var crystal2 = Math.floor(Math.random() * 11) + 1;
@@ -20,12 +35,10 @@ $(document).ready(function(){
         $("#crystal2").attr("data-value", crystal2);
         $("#crystal3").attr("data-value", crystal3);
         $("#crystal4").attr("data-value", crystal4);
-    }
-    
-    
+    };
+
     
     $(".crystal-image").on("click", function () {
-        
         var crystalValue = ($(this).attr("data-value"));
         console.log(crystalValue);
         
@@ -40,42 +53,21 @@ $(document).ready(function(){
             alert("You win!");
             wins++;
             $("#current-wins").text(wins);
+            reset();
         }
         
-        else if (counter >= numberToMatch) {
+        else if (counter > numberToMatch) {
             alert("You lose!!");
             losses++;
             $("#current-losses").text(losses);
-
+            reset();
         }
 
     });
 
 
 
-    // $(".crystal").on("click", function () {
-    
-    //     $('#total').text(userNumber);
-    //     if (userNumber === numberToMatch) {
-            
-    //     } else if (userNumber > numberToMatch) {
-    //         losses++
-    //     }
-    // })
-    // reset();
 
 
-    function reset() {
-        numberToMatch = Math.floor(Math.random() * 101) + 19;
-        // userNumber = 0;
-        var crystal1 = Math.floor(Math.random() * 11) + 1;
-        var crystal2 = Math.floor(Math.random() * 11) + 1;
-        var crystal3 = Math.floor(Math.random() * 11) + 1;
-        var crystal4 = Math.floor(Math.random() * 11) + 1;
-        $("#crystal1").attr("data-value", crystal1);
-        $("#crystal2").attr("data-value", crystal2);
-        $("#crystal3").attr("data-value", crystal3);
-        $("#crystal4").attr("data-value", crystal4);
-    }
 
 })
